@@ -1,0 +1,27 @@
+h1 {
+    font-family: "VIA regular";
+    color: #414141;
+    height: 0.6em;
+}
+
+h2 {
+    font-family: "VIA regular";
+    color: #414141;
+    height: 0.6em;
+}
+
+hr {
+    display: block;
+    height: 0px;
+    border: 0;
+    border-top: 3px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+    width: 79vw;
+}
+
+.header {
+    padding-top: 0.1em;
+    margin-right: 15em;
+}
+

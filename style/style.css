@@ -1,0 +1,192 @@
+@font-face {
+    font-family: "VIA regular";
+    src: url("fonts/via_type_regular-webfont.woff") format('woff');
+}
+@font-face {
+    font-family: "VIA bold";
+    src: url("fonts/via_type_bold-webfont.woff") format('woff');
+    font-weight: bold;
+}
+@font-face {
+    font-family: "VIA light";
+    src: url("fonts/via_type_light-webfont.woff") format('woff');
+    font-style: italic;
+}
+body{
+    background: #F0F1F2;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+h1, h2, h3, h4, h5, p, a, li, dl{
+    font-family: "VIA regular";
+    color: #414141;
+}
+button{
+    font-family: "VIA bold";
+    background: #32C8AA;
+    border: none;
+    font-size: 1.3em;
+    color: #414141;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: border .1s ease-in;  
+    transform: translate(-10%,-10%);
+    border-bottom: 0 solid #95D1C5;
+    border-image: url(/img/bgTile.png)  60 0 repeat;
+}
+button:hover{
+    border-bottom-width: 10px;
+}
+#header{
+    background: #D7D7D7;
+    height: 6em;
+    margin: 0;
+    width: 100%;
+    z-index: 20;
+}
+#header a img{
+    height: 6em;
+    margin-left: 1em;
+}
+#header ul{
+    position: absolute;
+    right: 30px;
+    top: 6em;
+    transform: translate(0, -100%);
+    margin-bottom: 0;
+    margin-top: 0;
+}
+#header li.active{
+    background: #95D1C5;
+}
+#header li.active a:hover{
+    color: #414141;
+}
+#header li{
+    font-family: "VIA bold";
+    font-weight: 900;
+    float: left; 
+    list-style-type: none;
+    padding: 1.3em;
+    color: #414141;
+}
+#header a:hover{
+    color: white;
+}
+
+#context{
+    min-height: 90vh;
+    z-index: -10;
+}
+.text{
+    width: 80%;
+    margin-left: 10%;
+    padding-top: 2em;
+}
+#footer{
+    margin-top: 2em !important;
+    background: #B1B1B1;
+    height: 15em;
+    margin: 0;
+    width: 100%;
+    padding-bottom: 1.5em;
+}
+#footer ul{
+    float: left;
+    margin: 30px 4em 0 50px;
+}
+#footer li{
+    font-family: "VIA regular";
+    list-style-type: none;
+    color: #414141;
+    margin: 10px;
+    font-size: .9em;
+    margin-left: 0;
+}
+#footer li:first-of-type{
+    font-family: "VIA regular";
+    font-weight: 900;
+    color: #414141;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+#footer a, #header a{
+    text-decoration: none;
+    color: #414141;
+}
+#footer a:hover{
+    color: #808080;
+}
+#footer #cont{
+    position: absolute;
+    height: inherit;
+    width: 36em;
+    transform: translate(-50%, 0);
+    left: 50%;
+}
+#menuFooter{
+    border-right: 1px solid #414141;
+    margin-right: 0 !important;
+    padding-right: 3.5em;
+}
+#contactFooter{
+    margin-left: 1.5em !important;
+}
+@media screen and (max-width: 60em) {
+    #header #menuContainer{
+        position: absolute;
+        height: 3em;
+        width: 3em;
+        right: 0;
+        top: 0;
+        margin: 1.5em;
+        overflow: hidden;
+        transition: height 1s ease, width .6s ease, boxShadow .6s ease;
+        background: #D7D7D7;
+        box-shadow: none;
+        z-index: 1000 !important;
+    }   
+    #header #menuContainer:hover{
+        height: 24em;
+        width: 13em;
+        border-radius: 15px 0 15px 15px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    } 
+    #header #menuContainer:after{
+        content: " ";
+        background-image: url("img/menu.png");
+        background-color: #D7D7D7;
+        height: 3em;
+        width: 3em;
+        background-size: cover;
+        position: absolute;
+        cursor: pointer;
+        right: 0;
+    }
+    #header ul{
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform: translate(0, 0);
+        margin-bottom: 0;
+        margin-top: 1em;
+        margin: 0;
+        padding-left: 0;
+        z-index: 1000 !important;
+    }
+    #header li.active{
+        background: #95D1C5;
+    }
+    #header li.active a:hover{
+        color: #414141;
+    }
+    #header li{
+        font-family: "VIA bold";
+        font-weight: 900;
+        list-style-type: none;
+        color: #414141;
+        margin-left: 0;
+        z-index: 1000 !important;
+    }
+}

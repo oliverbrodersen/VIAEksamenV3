@@ -1,0 +1,293 @@
+.container{
+    position: relative;
+    min-height: 50em;
+    height: calc(90vh - 6em);
+    float: left;
+    overflow: hidden;
+}
+body{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+h1, h2{
+    font-family: "VIA bold";
+    font-weight: 100;
+}
+h2{
+    font-family: "VIA regular";
+}
+#context{
+    min-height: 56em;
+    height: auto;
+    margin-top: .8em;
+}
+#left{
+    position: absolute;
+    left: 0;
+    z-index: 100;
+    overflow: hidden;
+    min-width: 28em;
+    top: 6em;
+    height: 58.8em
+}
+#right{
+    margin-left: 30em;
+    display: inline-block;
+}
+.slide{
+    position: absolute;
+    float: left;
+    left: 0%;
+    margin:  -25px;
+    height: 100%;
+    width: 100%;
+    background: #9CD2C7;
+    overflow: hidden;
+    animation: slide 30s ease infinite;
+    box-sizing: content-box;
+    border: 25px solid #9CD2C7;
+}
+.slide .image{
+    height: 60%;
+    margin: 0;
+    animation: image 30s ease infinite;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0%;
+}
+.image::after{
+    content: " ";
+    height: 60%;
+    width: 100%;
+    position: absolute;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,0.5690651260504201) 0%, rgba(0,0,0,0) 20%);
+}
+.slide .foot{
+    height: 40%;
+    background: #9CD2C7;
+    margin: 0;
+    border:none;
+}
+.slide h1{
+    position: absolute;
+    top: calc(60% - 2.2em);
+    font-size: 2em;
+    left: .9em;
+    color: white;
+    text-shadow: 0px 4px 5px rgba(37,37,37,0.53);
+}
+.slide p{
+    line-height: 140%;
+    margin: 20px 50px 0 30px;
+    font-size: 1em;
+}
+.slide button{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: .9em;
+}
+#a{
+    z-index: 10;
+    left: 0%;
+}
+#a .image{
+    background-image: url("img/academy-celebrate-celebration-267885.jpg");
+}
+#b{
+    animation-delay: 15s;
+    z-index: 0;
+    left: 105%;
+}
+#b .image{
+    background-image: url("img/bigstock-181592464-1024x442.jpg");
+    animation-delay: 15s;
+}
+.timer{
+    position: absolute;
+    width: 84%;
+    height: 8px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,.5);
+    z-index: 100;
+    margin: 5% 8%;
+    border-radius: 5px;
+}
+.bar{
+    height: 8px;
+    border-radius: 5px 0 0 5px;
+    width: 100%;
+    background: rgba(255,255,255,.5);
+    animation: timer 15s linear infinite;
+}
+.h1{
+    margin-bottom: 0;
+    flex: 0 0 100%;
+    min-width: 10em;
+    margin-left: .5em;
+}
+.h2{
+    font-size: 1em;
+    margin-top: 0;
+    color: #808080;
+    flex: 0 0 100%;
+    min-width: 10em;
+    margin-left: 1em;
+}
+.card{
+    width: 24em;
+    min-width: 28em;
+    height: 12em;
+    background: white;
+    float: left;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 1em;
+    font-family: "VIA bold";
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    cursor: pointer;
+    display: block;
+    background-image: url("img/bg.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+.card p{
+    font-weight: 900;
+    color: #414141;
+    font-size: 1.5em;
+    float: left;
+    text-align: left;
+    margin-bottom: 0;
+    width: 10em;
+    word-break: break-word;
+    font-family: "VIA bold";
+    font-weight: 100;
+}
+.card span{
+    font-weight: 100;
+    text-align: left;
+    font-family: "VIA regular";
+    font-size: 1em;
+    opacity: .7;
+    position: relative;
+    height: 5em;
+    width: 13em;
+    margin-top: .7em;
+    float: left;
+    margin-right: unset;
+}
+.card img{
+    height: 7em;
+    transform: translate(-50%, 0%) scale(1);
+    transition: transform .2s ease;
+    margin-left: 50%;
+    margin-top: 3em;
+    color: white;
+}
+.rules p{
+    z-index: 2000;
+    width: 6em;
+}
+.card .cardDes{
+    position: absolute;
+    background: #9CD2C7;
+    height: 12em;
+    margin: 0;
+    width: 12em;
+    z-index: 10;
+    padding-top: .1em;
+    transition: transform 0.2s cubic-bezier(.25,.8,.25,1);
+}
+.card:hover .cardDes{
+    transform: translate(-10%, -10%) !important;
+}
+.cardText{
+    position: relative;
+    height: inherit;
+    float: right;
+    z-index: 0;
+    display: block;
+    left: unset;
+    width: 15em;
+}
+@keyframes timer{
+    0%{
+        width: 0%;
+        background: rgba(255,255,255,.5);
+    }
+    98%{
+        width: 100%;
+        background: rgba(255,255,255,.5);
+    }
+    99%{
+        width: 100%;
+        background: rgba(255,255,255,.0);
+    }
+}
+@keyframes image{
+    0%{
+        background-position: 0%;
+    }
+    60%{
+        background-position: 100%;
+    }
+    80%{
+        background-position: 100%;
+    }
+    85%{
+        background-position: 100%;
+    }
+    100%{
+        background-position: 0%;
+    }
+}
+@keyframes slide {
+    0% {
+        z-index: 10;
+        left: 100%;
+    }
+    3% {
+        z-index: 10;
+        left: 0%;
+    }
+    55% {
+        z-index: 0;
+        left: 0%;
+    }
+    56% {
+        z-index: 0;
+        left: 105%;
+    }
+    80% {
+        z-index: 0;
+        left: 105%;
+    }
+    100% {
+        z-index: 10;
+        left: 105%;
+    }
+}
+@media screen and (max-width: 60em)
+{
+    #left {
+        display: none;
+    }
+    #right {
+        margin-left: unset;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+        max-width: 100%;
+    }
+    .card{
+        float: unset;
+    }
+
+    .h1, .h2 {
+        text-align: center;
+        width: 100%;
+    }
+}

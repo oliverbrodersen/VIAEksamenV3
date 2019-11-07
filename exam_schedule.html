@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>VIA - Exam Schedule</title>
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/schedule.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <!--Lavet af Oliver og Bejnamin-->
+    <div id="header">
+        <a href="index.html"><img src="img/logo.png" alt="VIA Logo"></a>
+        <ul>
+            <div id="menuContainer">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="exam_types.html">Exam Types</a></li>
+                <li><a href="exam_rules.html">Rules &#38; Regulations</a></li>
+                <li><a href="exam_advice.html">Exam Advice</a></li>
+                <li class="active"><a href="exam_schedule.html">Exam Schedule</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </div>
+        </ul>
+    </div>
+    <div id="context">
+        <div id="sidebar">
+            <input type="text" placeholder="Subject" id="subjectInput">
+            <label class="container">
+                <input type="checkbox">
+                <span class="checkmark">
+                    <form class="containerContext">
+                        <label>
+                            From: <br>
+                            <input type="date" id="dateFrom">
+                        </label>
+                        <label>
+                            To: <br>
+                            <input type="date" id="dateTo">
+                        </label>
+                        <label>
+                            Semester: <br>
+                            <input type="number" placeholder="All" min="1" max="7">
+                        </label>
+                        <input type="button" value="Apply" onclick="setParameters();">
+                    </form>
+                </span>
+            </label>
+            <div id="keywords">
+            </div>
+        </div>
+        <div id="content">
+        </div>
+    </div>
+    <div id="footer">
+        <div id="cont">
+            <ul id="menuFooter">
+                <li>Content</li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="exam_types.html">Exam Types</a></li>
+                <li><a href="exam_rules.html">Rules &#38; Regulations</a></li>
+                <li><a href="exam_advice.html">Exam Advice</a></li>
+                <li><a href="exam_schedule.html">Exam Schedule</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <ul id="contactFooter">
+                <li><a href="contact.html">Contact</a></li>
+                <li>Benjamin</li>
+                <li>Mark</li>
+                <li>Markus</li>
+                <li>Oliver</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="scripts/schedule_import.js"></script>
+    <script src="scripts/schedule.js"></script>
+</body></html>

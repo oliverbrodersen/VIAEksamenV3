@@ -1,0 +1,231 @@
+#sidebar{
+    position: absolute;
+    left: 0;
+    top: 6em;
+    height: 90vh;
+    width: 22em;
+    background: #e1e1e1;
+}
+#subjectInput{
+    position: absolute;
+    width: 70%;
+    margin-top: 2em;
+    transform: translate(-50%, 0);
+    left: 50%;
+    background: white;
+    height: 1em;
+    border-radius: 3em;
+    border: none;
+    padding: .3em .6em;
+    font-size: 1.4em;
+    border: 5px solid white;
+    transition: border .2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    cursor: pointer;
+}
+#subjectInput:active, #subjectInput:focus{
+    border: 5px solid #95D1C5;
+    outline: none;
+}
+#keywords{
+    position: relative;
+    width: 80%;
+    margin-left: 10%;
+    height: auto;
+    margin-top: 8em;
+}
+.keyword{
+    font-family: "VIA regular";
+    font-size: 1em;
+    position: relative;
+    float: left;
+    padding: .3em .8em;
+    background: var(--color);
+    margin: 5px;
+    border-radius: 1em;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);,
+}
+.x{
+    float: right;
+    color: #eb4034;
+    font-size: 1em;
+    line-height: 1.2em;
+    margin-left: .4em;
+    cursor: pointer;
+}
+#content{
+    position: absolute;
+    left: 22em;
+    top: 6em;
+    height: 90vh;
+    padding: 2em;
+    width: calc(100% - 22em);
+    box-sizing: border-box;
+}
+.card{
+    float: left;
+    position: relative;
+    font-family: "VIA regular";
+    background: white;
+    width: 15em;
+    height: 15em;
+    margin: 1em;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 1em;
+    border-bottom: 15px solid white;
+}
+.card:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.card h1{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.card h2{
+    position: absolute;
+    bottom: 0;
+}
+.card h3{
+    margin-top: 0;
+    font-family: 'Bree Serif', serif;
+    font-weight: 100;
+}
+.containerContext{
+    float: left;
+    margin-top: 30px;
+    width: 100%;
+    border: solid white .7em;
+    box-sizing: border-box;
+    padding: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+/* Customize the label (the container) */
+.container {
+    position: absolute;
+    padding-left: 35px;
+    margin-left: 15%;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    top: 4.5em;
+    width: 70%;
+    font-family: "VIA regular";
+    z-index: 100;
+}
+
+/* Hide the browser's default checkbox */
+.container input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 90%;
+    overflow: hidden;
+    transition: height .5s ease;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark:after {
+    top: 8px;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    height: 13em;
+}
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    -webkit-transform: rotate(225deg);
+    -ms-transform: rotate(225deg);
+    transform: rotate(225deg);
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 7px;
+    top: 5px;
+    width: 7px;
+    height: 7px;
+    border: solid #414141;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    display: block;
+    transform: top .2s ease;
+}
+.container input[type=date], .container input[type=number]{
+    background: white;
+    border: 2px solid #E1E1E1;
+    font-size: .8em;
+    padding: .2em .8em;
+    border-radius: 1em;
+    width: 80%;
+    margin-top: .5em;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    margin-bottom: 1em;
+}
+.container input[type=date]:focus, .container input[type=number]:focus{
+    border-color: #95D1C5;
+    outline: none;
+}
+.container input[type=number]{
+    width: 50%;
+    padding: .4em 1em;
+}
+.container input[type=button]{
+    position: absolute;
+    right: 1em;
+    top: 14.5em;
+    background: #95D1C5;
+    border: none;
+    font-size: .7em;
+    font-family: "VIA regular";
+    padding: .5em 1em;
+    border-radius: 5px;
+    color: #414141;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    cursor: pointer;
+}
+.container label{
+    font-size: .8em;
+    float:left;
+}
+.rwd{
+    --color: #ffaa96;
+}
+.sdj{
+    --color: #9af5b2;
+}
+.sse{
+    --color: #91d0eb;
+}
+.mse{
+    --color: #c191eb;
+}

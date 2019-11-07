@@ -1,0 +1,91 @@
+h1 {
+    font-family: "VIA regular";
+    color: #414141;
+    height: 0.6em;
+}
+
+h2 {
+    font-family: "VIA regular";
+    color: #414141;
+    height: 0.6em;
+    font-weight: 100
+}
+h2 a, h2 span{
+    font-family: "VIA light";
+    font-weight: 100;
+}
+h3 {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    margin-top: 10px;
+    margin-left: -5px;
+    font-family: "VIA bold";
+    font-weight: 100;
+}
+hr {
+    display: block;
+    height: 0px;
+    border: 0;
+    border-top: 3px solid #ddd;
+    margin: 1em 0;
+    padding: 0;
+    width: 79vw;
+}
+
+span {
+    font-weight: 900;
+    margin-left: 0.5em;
+}
+.head {
+    padding-top: 0.6em;
+    text-align: center;
+}
+summary::-webkit-details-marker {
+    display: none;
+}
+summary h1:before {
+    content: "+"; /* the new icon */
+    color: #414141;
+    font-weight: 100;
+    font-family: "VIA regular";
+    margin-right: 1em;
+    cursor: pointer;
+}
+details{
+    transition: height .5s ease;
+}
+details p, details dl{
+    margin-left: 5em;
+    margin-right: 5em;
+}
+details .first{
+    margin-left: -3em;
+}
+summary{
+    transition: background .2s ease;
+}
+summary h1{
+    margin-bottom: 1.2em;
+    font-weight: 100;
+    cursor: pointer;
+    font-family: "VIA light";
+}
+summary h1 span{
+    font-weight: 100;
+    font-family: "VIA regular";
+}
+details[open] summary, details:focus summary, details:active summary, details:hover summary{
+    outline: none;
+    background: #ddd;
+}
+.header {
+    padding-top: 0.1em;
+    margin-right: 15em;
+}
+

@@ -1,0 +1,98 @@
+#context{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    min-height: calc(67vh - 8em);
+    padding-bottom: 3em;
+    padding-top: 15em
+}
+body{
+    min-height: calc(80vh - 6em);
+}
+h1{
+    position: absolute;
+    top: 6em;
+    width: 100%;
+    text-align: center;
+    font-family: "VIA bold";
+    font-weight: 100;
+}
+.profile{
+    margin: 15px;
+    height: 30em;
+    width: 20em;
+    cursor: auto;
+}
+.pic{
+    position: absolute;
+    height: 20em;
+    width: 20em;
+    border-radius: 50%;
+    background-image: url(/img/profile.png);
+    background-size: cover;
+    transform: translate(0em, 0em);
+    z-index: 10;
+    transition: transform 0.2s cubic-bezier(.25,.8,.25,1);
+}
+.pic:hover{
+    transform: translate(-1em, -1em);
+}
+#oliver .pic{
+    background-image: url(img/oliver.jpg);
+}
+#mark .pic{
+    background-image: url(img/mark.jpg);
+}
+#markus .pic{
+    background-image: url(img/markus.jpg);
+}
+#benjamin .pic{
+    background-image: url("img/benjamin.jpg");
+}
+.back{
+    position: absolute;
+    height: 20em;
+    width: 20em;
+    border-radius: 50%;
+    background-image: url("img/bg.png");
+    background-size: contain;
+    transform: translate(0em, 0em);
+    z-index: 8;
+}
+.detail{
+    position: absolute;
+    height: 20em;
+    width: 16em;
+    margin-top: 10em;
+    margin-left: 2em;
+    background: white;
+    z-index: 7;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    box-sizing: border-box;
+    border-top: 9em solid #95D1C5; 
+}
+.profile:hover  .pic{
+    transform: translate(-1em, -1em) !important;
+}
+.profile h2{
+    margin-top: 2em;
+    color: #414141;
+    text-align: center;
+    font-family: "VIA bold";
+    font-weight: 100;
+    margin-bottom: .3em;
+}
+.profile h3{
+    margin-top: .1em;
+    font-weight: 100;
+    border-top: 1px solid #909090;
+    padding-top: .5em;
+    width: 90%;
+    margin-left:  5%;
+    text-align: center;
+    
+}
+h3 a{
+    font-family: "VIA light" !important;
+}
