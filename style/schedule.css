@@ -15,7 +15,6 @@
     background: white;
     height: 1em;
     border-radius: 3em;
-    border: none;
     padding: .3em .6em;
     font-size: 1.4em;
     border: 5px solid white;
@@ -35,7 +34,7 @@
     margin-top: 8em;
 }
 .keyword{
-    font-family: "VIA regular";
+    font-family: "VIA regular", sans-serif;
     font-size: 1em;
     position: relative;
     float: left;
@@ -65,7 +64,7 @@
 .card{
     float: left;
     position: relative;
-    font-family: "VIA regular";
+    font-family: "VIA regular", sans-serif;
     background: white;
     width: 15em;
     height: 15em;
@@ -119,7 +118,7 @@
     user-select: none;
     top: 4.5em;
     width: 70%;
-    font-family: "VIA regular";
+    font-family: "VIA regular", sans-serif;
     z-index: 100;
 }
 
@@ -178,7 +177,7 @@
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
     display: block;
-    transform: top .2s ease;
+    transition: top .2s ease;
 }
 .container input[type=date], .container input[type=number]{
     background: white;
@@ -206,7 +205,7 @@
     background: #95D1C5;
     border: none;
     font-size: .7em;
-    font-family: "VIA regular";
+    font-family: "VIA regular", sans-serif;
     padding: .5em 1em;
     border-radius: 5px;
     color: #414141;
