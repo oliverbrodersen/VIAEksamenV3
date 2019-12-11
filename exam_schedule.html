@@ -30,26 +30,10 @@
     <div id="context">
         <div id="sidebar">
             <input type="text" placeholder="Subject" id="subjectInput">
-            <label class="container">
-                <input type="checkbox">
-                <span class="checkmark">
-                    <form class="containerContext">
-                        <label>
-                            From: <br>
-                            <input type="date" id="dateFrom">
-                        </label>
-                        <label>
-                            To: <br>
-                            <input type="date" id="dateTo">
-                        </label>
-                        <label>
-                            Semester: <br>
-                            <input type="number" placeholder="All" min="1" max="7">
-                        </label>
-                        <input type="button" value="Apply" onclick="setParameters();">
-                    </form>
-                </span>
-            </label>
+            <div id="keyWordControlls">
+                <input type="button" value="Clear keywords" onclick="clearAll();">
+                <input type="button" value="Show all" onclick="showAll();">
+            </div>
             <div id="keywords">
             </div>
         </div>
@@ -76,7 +60,8 @@
             </ul>
         </div>
     </div>
-    
+
     <script src="scripts/schedule_import.js"></script>
+    <script src="scripts/examText.js"></script>
     <script src="scripts/schedule.js"></script>
 </body></html>
