@@ -3,6 +3,10 @@ h1 {
     color: #414141;
     height: auto;
 }
+.h1{
+      padding-bottom: 30px;
+    border-bottom: solid #B1B1B1;
+    }
 
 h2 {
     font-family: "VIA regular", sans-serif;
@@ -28,7 +32,7 @@ h3 {
 }
 hr {
     display: block;
-    height: 0px;
+    height: 0;
     border: 0;
     border-top: 3px solid #ddd;
     margin: 1em 0;
@@ -41,7 +45,7 @@ span {
     margin-left: 0.5em;
 }
 .head {
-    padding-top: 0.6em;
+    padding-top: 0.1em;
     text-align: center;
 }
 summary::-webkit-details-marker {

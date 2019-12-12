@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, p, a, li, dl{
     font-family: "VIA regular", sans-serif;
     color: #414141;
 }
-button{
+.button{
     font-family: "VIA bold", sans-serif;
     background: #32C8AA;
     border: none;
@@ -36,7 +36,7 @@ button{
     border-bottom: 0 solid #95D1C5;
     border-image: url(img/bgTile.png)  60 0 repeat;
 }
-button:hover{
+.button:hover{
     border-bottom-width: 10px;
 }
 #header{
