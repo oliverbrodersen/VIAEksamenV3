@@ -6,14 +6,7 @@ let dateFrom, dateTo, semester;
 const difference = 110;
 
 //Create classes and keywords from loaded array
-if (classes.length !== 0) {
-    for (let i = 0; i < classes.length; i++) {
-        const str = classes[i].classname.split("-");
-        const shortName = str[1].slice(0,3);
-        //For each item in classes array createCard
-        createCard(i, classes[i].classname, shortName , classes[i].examType, classes[i].roomName, classes[i].teacher, classes[i].hasHDMI, classes[i].hasVGA , classes[i].dateStart, classes[i].dateEnd, classes[i].color, true);
-    }
-}
+showAll();
 //Bind enter key to run function from input
 document.getElementById('subjectInput').onkeypress = function(e) {
     if(e.keyCode === 13) {
@@ -21,27 +14,22 @@ document.getElementById('subjectInput').onkeypress = function(e) {
     }
 };
 //Create card
-function createCard(i, classname, nameShort, examType, roomName, teacher, hasHDMI, hasVGA, dateStart, dateEnd, color, init) {
+function createCard(i, classname, nameShort, examType, roomName, teacher, hasHDMI, hasVGA, dateStart, dateEnd, color, is7thSemester, init) {
     //Add to context a card with correct information
     if(document.getElementById("class" + i) === null) {
         const dateStartPart = dateStart.split("/");
         const dateEndPart = dateEnd.split("/");
-        $( "#content" ).append("<div class='card card" + classname + "' id='class" + i + "' style='border-color: " + color + ";'><h3>" + examType + "</h3><h1>" + classname + "</h1><h3>" + teacher + "</h3><h3 class='room'>" + roomName + "</h3><h2>" + dateStartPart[0] + "/" + dateStartPart[1] + " - " + dateEndPart[0] + "/" + dateEndPart[1] + "</h2></div>");
-        if (init)
-            createKeyword(i, nameShort, color, true);
-        if (hasHDMI === "true")
-            $(".card" + classname).addClass("hasHDMI");
-        if (hasVGA === "true")
-            $(".card" + classname).addClass("hasVGA");
+        $( "#content" ).append("<div class='card card" + classname + "' id='class" + i + "' style='border-color: " + color + ";'><h3>" + examType + "</h3><h1>" + classname + "</h1><h3>" + teacher + "</h3><h3 class='room'>" + roomName + "</h3><h2>" + dateStartPart[0] + "/" + dateStartPart[1] + ((dateStart === dateEnd) ? '' : " - " + dateEndPart[0] + "/" + dateEndPart[1]) + "</h2></div>");
+        init && createKeyword(i, nameShort, color, true);
+        hasHDMI === "true" &&    $(".card" + classname).addClass("hasHDMI");
+        hasVGA === "true" &&  $(".card" + classname).addClass("hasVGA");
     }
 }
 
 //Creates keyword
 function createKeyword(i, name, color, add) {
     if (document.querySelector('.' + name) == null) {
-        if(add){
-            keywords.push({name: name, color: color});
-        }
+        add && keywords.push({name: name, color: color});
         //\u0022 is unicode for "
         $( "#keywords" ).append("<div class='keyword " + name + "' id='key" + i + "' style='background-color: " + color + ";'>" + name + "<div class='x' onclick='removeKeyword(\u0022" + name + "\u0022)'>&#x2715;</div></div>");
     }
@@ -95,7 +83,7 @@ function showAll() {
         const str = classes[i].classname.split("-");
         const shortName = str[1].slice(0,3);
         //For each item in classes array createCard
-        createCard(i, classes[i].classname, shortName , classes[i].examType, classes[i].roomName, classes[i].teacher, classes[i].hasHDMI, classes[i].hasVGA , classes[i].dateStart, classes[i].dateEnd, classes[i].color, true);
+        createCard(i, classes[i].classname, shortName , classes[i].examType, classes[i].roomName, classes[i].teacher, classes[i].hasHDMI, classes[i].hasVGA , classes[i].dateStart, classes[i].dateEnd, classes[i].color,classes[i].is7thSemester, true);
     }
 }
 function clearAll() {
