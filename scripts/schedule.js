@@ -1,12 +1,11 @@
 //Format;
 //{classname, examType, dateStart, dateEnd, color}
 const keywords = [];
-let parameters = false;
-let dateFrom, dateTo, semester;
 const difference = 110;
+let favorites = [];
 
 //Create classes and keywords from loaded array
-showAll();
+classes.length !== 0 && showAll();
 //Bind enter key to run function from input
 document.getElementById('subjectInput').onkeypress = function(e) {
     if(e.keyCode === 13) {
@@ -19,10 +18,17 @@ function createCard(i, classname, nameShort, examType, roomName, teacher, hasHDM
     if(document.getElementById("class" + i) === null) {
         const dateStartPart = dateStart.split("/");
         const dateEndPart = dateEnd.split("/");
-        $( "#content" ).append("<div class='card card" + classname + "' id='class" + i + "' style='border-color: " + color + ";'><h3>" + examType + "</h3><h1>" + classname + "</h1><h3>" + teacher + "</h3><h3 class='room'>" + roomName + "</h3><h2>" + dateStartPart[0] + "/" + dateStartPart[1] + ((dateStart === dateEnd) ? '' : " - " + dateEndPart[0] + "/" + dateEndPart[1]) + "</h2></div>");
+        $( "#content" ).append("<div class='card' id='card" + classname + "' style='border-color: " + color + ";' onclick='favcard(\u0022" + classname + "\u0022)'><img src='img/star.png'/><h3>" + examType + "</h3><h1>" + classname + "</h1><h3>" + teacher + "</h3><h3 class='room'>" + roomName + "</h3><h2>" + dateStartPart[0] + "/" + dateStartPart[1] + ((dateStart === dateEnd) ? '' : " - " + dateEndPart[0] + "/" + dateEndPart[1]) + "</h2></div>");
         init && createKeyword(i, nameShort, color, true);
-        hasHDMI === "true" &&    $(".card" + classname).addClass("hasHDMI");
-        hasVGA === "true" &&  $(".card" + classname).addClass("hasVGA");
+        hasHDMI === "true" && $("#card" + classname).addClass("hasHDMI");
+        hasVGA === "true" &&  $("#card" + classname).addClass("hasVGA");
+
+        for (let j = 0; j < favorites.length; j++) {
+            if (favorites[j] === classname){
+                $("#card" + classname).prependTo($("#content"));
+                $("#card" + classname + " img").attr("src", "img/Astar.png");
+            }
+        }
     }
 }
 
@@ -37,9 +43,7 @@ function createKeyword(i, name, color, add) {
 //Removes keyword from everywhere
 function removeKeyword(word){
     for (let i = 0; i < keywords.length; i++){
-        if(keywords[i].name === word){
-            keywords.splice(i, 1);
-        }
+        keywords[i].name === word && keywords.splice(i, 1);
     }
     //Redo the search
     updateKeywords();
@@ -65,13 +69,30 @@ function updateKeywords(){
                 case classes[j].examType.toUpperCase():
                 case classes[j].teacher.toUpperCase():
                 case classes[j].roomName.toUpperCase():
-                    document.querySelector('.' + classes[j].classname) == null && createCard(j, classes[j].classname, classPart[1] , classes[j].examType, classes[j].roomName, classes[j].teacher, classes[j].hasHDMI, classes[j].hasVGA , classes[j].dateStart, classes[j].dateEnd, classes[j].color, false);
+                    document.querySelector('.' + classes[j].classname) == null && createCard(j, classes[j].classname, classPart[1] , classes[j].examType, classes[j].roomName, classes[j].teacher, classes[j].hasHDMI, classes[j].hasVGA , classes[j].dateStart, classes[j].dateEnd, classes[j].color, classes[j].is7thSemester, true);
                     break;
             }
         }
     }
 }
+function favcard(t) {
+    if (favorites.includes(t)){
+        favorites.splice(favorites.indexOf(t),1);
+        $("#card" + t + " img").attr("src", "img/star.png");
+        $("#card" + t).appendTo($("#content"));
+    }
+    else{
+        favorites.push(t);
+        $("#card" + t).prependTo($("#content"));
+        $("#card" + t + " img").attr("src", "img/Astar.png");
+     }
+    let fav = "";
+    for (let i = 0; i < favorites.length; i++) {
+        fav += favorites[i] + "£"
+    }
+    Cookies.set('fav',fav);
 
+}
 function search(term){
     $("#subjectInput").val("");
     term = term.toUpperCase();
@@ -79,11 +100,23 @@ function search(term){
     updateKeywords();
 }
 function showAll() {
+    if (Cookies.get('fav') === undefined)
+        Cookies.set("fav","");
+    const cookie = Cookies.get('fav'), fav = cookie.split("£");
+    $("#content").empty();
     for (let i = 0; i < classes.length; i++) {
-        const str = classes[i].classname.split("-");
+        const t= classes[i].classname;
+        const str = t.split("-");
         const shortName = str[1].slice(0,3);
         //For each item in classes array createCard
-        createCard(i, classes[i].classname, shortName , classes[i].examType, classes[i].roomName, classes[i].teacher, classes[i].hasHDMI, classes[i].hasVGA , classes[i].dateStart, classes[i].dateEnd, classes[i].color,classes[i].is7thSemester, true);
+        createCard(i, t, shortName , classes[i].examType, classes[i].roomName, classes[i].teacher, classes[i].hasHDMI, classes[i].hasVGA , classes[i].dateStart, classes[i].dateEnd, classes[i].color, classes[i].is7thSemester, true);
+        for (let j = 0; j < fav.length; j++) {
+            if (fav[j] === t){
+                favorites.push(t);
+                $("#card" + t).prependTo($("#content"));
+                $("#card" + t + " img").attr("src", "img/Astar.png");
+            }
+        }
     }
 }
 function clearAll() {
