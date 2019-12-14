@@ -13,20 +13,21 @@ document.getElementById('subjectInput').onkeypress = function(e) {
     }
 };
 //Create card
-function createCard(i, classname, nameShort, examType, roomName, teacher, hasHDMI, hasVGA, dateStart, dateEnd, color, is7thSemester, init) {
+function createCard(i, classname, nameShort, examType, roomName, teacher, isGroup, hasHDMI, hasVGA, dateStart, dateEnd, color, is7thSemester, init) {
     //Add to context a card with correct information
     if(document.getElementById("class" + i) === null) {
         const dateStartPart = dateStart.split("/");
         const dateEndPart = dateEnd.split("/");
-        $( "#content" ).append("<div class='card' id='card" + classname + "' style='border-color: " + color + ";' onclick='favcard(\u0022" + classname + "\u0022)'><img src='img/star.png'/><h3>" + examType + "</h3><h1>" + classname + "</h1><h3>" + teacher + "</h3><h3 class='room'>" + roomName + "</h3><h2>" + dateStartPart[0] + "/" + dateStartPart[1] + ((dateStart === dateEnd) ? '' : " - " + dateEndPart[0] + "/" + dateEndPart[1]) + "</h2></div>");
+        $( "#content" ).append("<div class='card' id='card" + classname + "' style='border-color: " + color + ";' onclick='favcard(\u0022" + classname + "\u0022)'><img class='fav' src='img/star.png'/><h3>" + examType + "</h3><h1>" + classname + "</h1><h3>" + teacher + "</h3><h3 class='room'>" + roomName + "</h3><h2>" + dateStartPart[0] + "/" + dateStartPart[1] + ((dateStart === dateEnd) ? '' : " - " + dateEndPart[0] + "/" + dateEndPart[1]) + "</h2><img class='group' src='img/solo.png'/></div>");
         init && createKeyword(i, nameShort, color, true);
         hasHDMI === "true" && $("#card" + classname).addClass("hasHDMI");
         hasVGA === "true" &&  $("#card" + classname).addClass("hasVGA");
+        isGroup === "true" &&  $("#card" + classname + " .group").attr("src", "img/group.png");
 
         for (let j = 0; j < favorites.length; j++) {
             if (favorites[j] === classname){
                 $("#card" + classname).prependTo($("#content"));
-                $("#card" + classname + " img").attr("src", "img/Astar.png");
+                $("#card" + classname + " .fav").attr("src", "img/Astar.png");
             }
         }
     }
@@ -69,7 +70,7 @@ function updateKeywords(){
                 case classes[j].examType.toUpperCase():
                 case classes[j].teacher.toUpperCase():
                 case classes[j].roomName.toUpperCase():
-                    document.querySelector('.' + classes[j].classname) == null && createCard(j, classes[j].classname, classPart[1] , classes[j].examType, classes[j].roomName, classes[j].teacher, classes[j].hasHDMI, classes[j].hasVGA , classes[j].dateStart, classes[j].dateEnd, classes[j].color, classes[j].is7thSemester, true);
+                    document.querySelector('.' + classes[j].classname) == null && createCard(j, classes[j].classname, classPart[1] , classes[j].examType, classes[j].roomName, classes[j].teacher, classes[j].groupExam, classes[j].hasHDMI, classes[j].hasVGA , classes[j].dateStart, classes[j].dateEnd, classes[j].color, classes[j].is7thSemester, true);
                     break;
             }
         }
@@ -78,13 +79,13 @@ function updateKeywords(){
 function favcard(t) {
     if (favorites.includes(t)){
         favorites.splice(favorites.indexOf(t),1);
-        $("#card" + t + " img").attr("src", "img/star.png");
+        $("#card" + t + " .fav").attr("src", "img/star.png");
         $("#card" + t).appendTo($("#content"));
     }
     else{
         favorites.push(t);
         $("#card" + t).prependTo($("#content"));
-        $("#card" + t + " img").attr("src", "img/Astar.png");
+        $("#card" + t + " .fav").attr("src", "img/Astar.png");
      }
     let fav = "";
     for (let i = 0; i < favorites.length; i++) {
@@ -109,12 +110,12 @@ function showAll() {
         const str = t.split("-");
         const shortName = str[1].slice(0,3);
         //For each item in classes array createCard
-        createCard(i, t, shortName , classes[i].examType, classes[i].roomName, classes[i].teacher, classes[i].hasHDMI, classes[i].hasVGA , classes[i].dateStart, classes[i].dateEnd, classes[i].color, classes[i].is7thSemester, true);
+        createCard(i, t, shortName , classes[i].examType, classes[i].roomName, classes[i].teacher, classes[i].groupExam, classes[i].hasHDMI, classes[i].hasVGA , classes[i].dateStart, classes[i].dateEnd, classes[i].color, classes[i].is7thSemester, true);
         for (let j = 0; j < fav.length; j++) {
             if (fav[j] === t){
                 favorites.push(t);
                 $("#card" + t).prependTo($("#content"));
-                $("#card" + t + " img").attr("src", "img/Astar.png");
+                $("#card" + t + " .fav").attr("src", "img/Astar.png");
             }
         }
     }
