@@ -70,7 +70,7 @@ function updateKeywords(){
                 case classes[j].examType.toUpperCase():
                 case classes[j].teacher.toUpperCase():
                 case classes[j].roomName.toUpperCase():
-                    document.querySelector('.' + classes[j].classname) == null && createCard(j, classes[j].classname, classPart[1] , classes[j].examType, classes[j].roomName, classes[j].teacher, classes[j].groupExam, classes[j].hasHDMI, classes[j].hasVGA , classes[j].dateStart, classes[j].dateEnd, classes[j].color, classes[j].is7thSemester, true);
+                    document.querySelector('#card' + classes[j].classname) == null && createCard(j, classes[j].classname, classPart[1] , classes[j].examType, classes[j].roomName, classes[j].teacher, classes[j].groupExam, classes[j].hasHDMI, classes[j].hasVGA , classes[j].dateStart, classes[j].dateEnd, classes[j].color, classes[j].is7thSemester, true);
                     break;
             }
         }
@@ -108,7 +108,7 @@ function showAll() {
     for (let i = 0; i < classes.length; i++) {
         const t= classes[i].classname;
         const str = t.split("-");
-        const shortName = str[1].slice(0,3);
+        const shortName = str[1];
         //For each item in classes array createCard
         createCard(i, t, shortName , classes[i].examType, classes[i].roomName, classes[i].teacher, classes[i].groupExam, classes[i].hasHDMI, classes[i].hasVGA , classes[i].dateStart, classes[i].dateEnd, classes[i].color, classes[i].is7thSemester, true);
         for (let j = 0; j < fav.length; j++) {
