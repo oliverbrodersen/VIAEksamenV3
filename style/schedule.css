@@ -12,8 +12,8 @@ body{
 #subjectInput{
     position: absolute;
     width: 70%;
-    margin-top: 2em;
-    transform: translate(-50%, 0);
+    margin-top: 3em;
+    transform: translate(-50%, -50%);
     left: 50%;
     background: white;
     height: 1em;
@@ -54,11 +54,10 @@ body{
     margin-left: .4em;
     cursor: pointer;
 }
-#context button{
+#toggle{
     position: absolute;
     margin: 15px;
-    top: 3em;
-    left: 0;
+    left: 100%;
     font-family: "VIA regular", sans-serif;
     background: rgba(130,130,130,.3);
     border: none;
@@ -68,6 +67,34 @@ body{
     font-size: 30px;
     cursor: pointer;
     z-index: 100;
+    color: #fff;
+    transition: background-color .2s ease;
+}
+#toggle:hover{
+    background: rgba(130,130,130,.5);
+}
+#toggle:active, #toggle:focus{
+    outline:none;
+}
+#search{
+    height: 1.6em;
+    width: 1.6em;
+    border-radius: 50%;
+    background: #95D1C5 url("img/search.png");
+    background-size: cover;
+    position: absolute;
+    font-size: 1.4em;
+    transform: translate(-50%, -50%);
+    top: 3em;
+    border: none;
+    left: calc(83.5%);
+    z-index: 10000;
+    cursor: pointer;
+    box-shadow: none;
+    transition: box-shadow .2s ease;
+}
+#search:hover{
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 #content{
     position: absolute;

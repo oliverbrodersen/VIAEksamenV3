@@ -102,10 +102,12 @@ function favcard(t) {
 
 }
 function search(term){
-    $("#subjectInput").val("");
-    term = term.toUpperCase();
-    createKeyword(keywords.length, term, getColor(), true);
-    updateKeywords();
+    if (term !== ""){
+        $("#subjectInput").val("");
+        term = term.toUpperCase();
+        createKeyword(keywords.length, term, getColor(), true);
+        updateKeywords();
+    }
 }
 function showAll() {
     if (Cookies.get('fav') === undefined)
