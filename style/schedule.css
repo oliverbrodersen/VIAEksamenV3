@@ -5,7 +5,7 @@ body{
     position: absolute;
     left: 0;
     top: 6em;
-    height: 100%;
+    height: calc(100% - 6em);
     width: 22em;
     transition: left .2s ease;
 }
@@ -102,9 +102,20 @@ body{
     top: 6em;
     padding: 2em;
     width: calc(100% - 22em);
+    min-height: calc(100% - 6em);
     box-sizing: border-box;
     background: #F0F1F2;
     transition: left .2s ease, width .2s ease;
+}
+#content .textPlaceholder1{
+    margin-top: 20%;
+    width: 100%;
+    text-align: center;
+}
+#content .textPlaceholder2{
+    font-family: "VIA light", sans-serif;
+    width: 100%;
+    text-align: center;
 }
 .card{
     float: left;

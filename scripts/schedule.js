@@ -102,7 +102,7 @@ function favcard(t) {
 
 }
 function search(term){
-    if (term !== ""){
+    if (term !== "" && !/[^a-z0-9]/i.test(term)){
         $("#subjectInput").val("");
         term = term.toUpperCase();
         createKeyword(keywords.length, term, getColor(), true);
