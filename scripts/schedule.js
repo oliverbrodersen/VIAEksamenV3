@@ -18,7 +18,14 @@ function createCard(i, classname, nameShort, examType, roomName, teacher, isGrou
     if(document.getElementById("class" + i) === null) {
         const dateStartPart = dateStart.split("/");
         const dateEndPart = dateEnd.split("/");
-        $( "#content" ).append("<div class='card' id='card" + classname + "' style='border-color: " + color + ";' onclick='favcard(\u0022" + classname + "\u0022)'><img class='fav' src='img/star.png'/><h3>" + examType + "</h3><h1>" + classname + "</h1><h3>" + teacher + "</h3><h3 class='room'>" + roomName + "</h3><h2>" + dateStartPart[0] + "/" + dateStartPart[1] + ((dateStart === dateEnd) ? '' : " - " + dateEndPart[0] + "/" + dateEndPart[1]) + "</h2><img class='group' src='img/solo.png'/></div>");
+        $( "#content" ).append("<div class='card' id='card" + classname + "' style='border-color: " + color + ";' onclick='favcard(\u0022" + classname + "\u0022)'>" +
+            "<img class='fav' src='img/star.png' alt='fav'/>" +
+            "<h3>" + examType + "</h3>" +
+            "<h1>" + classname + "</h1>" +
+            "<h3>" + teacher + "</h3>" +
+            "<h3 class='room'>" + roomName + "</h3>" +
+            "<h2>" + dateStartPart[0] + "/" + dateStartPart[1] + ((dateStart === dateEnd) ? '' : " - " + dateEndPart[0] + "/" + dateEndPart[1]) + "</h2>" +
+            "<img class='group' src='img/solo.png' alt='group'/></div>");
         init && createKeyword(i, nameShort, color, true);
         hasHDMI === "true" && $("#card" + classname).addClass("hasHDMI");
         hasVGA === "true" &&  $("#card" + classname).addClass("hasVGA");

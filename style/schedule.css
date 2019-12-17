@@ -1,10 +1,13 @@
+body{
+    background: #e1e1e1;
+}
 #sidebar{
     position: absolute;
     left: 0;
     top: 6em;
-    height: 90vh;
+    height: 100%;
     width: 22em;
-    background: #e1e1e1;
+    transition: left .2s ease;
 }
 #subjectInput{
     position: absolute;
@@ -51,14 +54,30 @@
     margin-left: .4em;
     cursor: pointer;
 }
+#context button{
+    position: absolute;
+    margin: 15px;
+    top: 3em;
+    left: 0;
+    font-family: "VIA regular", sans-serif;
+    background: rgba(130,130,130,.3);
+    border: none;
+    border-radius: 5px;
+    line-height: 50%;
+    padding: 3px 5px 6px 5px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 100;
+}
 #content{
     position: absolute;
     left: 22em;
     top: 6em;
-    height: 90vh;
     padding: 2em;
     width: calc(100% - 22em);
     box-sizing: border-box;
+    background: #F0F1F2;
+    transition: left .2s ease, width .2s ease;
 }
 .card{
     float: left;
